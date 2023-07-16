@@ -1,11 +1,11 @@
-name: Docs
+name: Deploy
 on:
   push:
     branches:
       - dev
 jobs:
   release:
-    name: Docs
+    name: Deploy
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -20,14 +20,9 @@ jobs:
         run: |
           npm install
           npm run build
-      - name: Copy worker
-        run: |
-          rm -rf ./dist/vite.svg
-          mkdir ./dist/wasm
-          cp ./node_modules/terranova/dist/wasm/*worker* ./dist/wasm/
-      - name: Docs
-        uses: JamesIves/github-pages-deploy-action@3.7.1
+      - name: Deploy
+        uses: JamesIves/github-pages-deploy-action@v4
         with:
-          GITHUB_TOKEN: ${{ secrets.TERRANOVA }}
-          BRANCH: gh-pages
-          FOLDER: dist
+          GITHUB_TOKEN: ${{ secrets.BLOG }}
+          BRANCH: master
+          FOLDER: public
