@@ -103,3 +103,9 @@ theme: butterfly
 ## Docs: https://hexo.io/docs/one-command-deployment
 deploy:
   type: ''
+
+# A simple 404 page
+error_404:
+  enable: true
+  subtitle: '页面没有找到'
+  background:
