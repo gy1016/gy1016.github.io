@@ -1,0 +1,179 @@
+<!DOCTYPE html><html lang="zh-cn" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>屏幕空间误差 | 墨悲丝染，诗赞羔羊</title><meta name="author" content="Lamb"><meta name="copyright" content="Lamb"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="介绍屏幕空间误差的概念，计算方式和应用场景。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="屏幕空间误差">
+<meta property="og:url" content="https://sgyat.cn/2023/07/16/Screen-Space-Rrror/index.html">
+<meta property="og:site_name" content="墨悲丝染，诗赞羔羊">
+<meta property="og:description" content="介绍屏幕空间误差的概念，计算方式和应用场景。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/gy1016/blog-image@main/assets/avatar.jpg">
+<meta property="article:published_time" content="2023-07-16T16:10:55.113Z">
+<meta property="article:modified_time" content="2023-07-20T17:12:20.296Z">
+<meta property="article:author" content="Lamb">
+<meta property="article:tag" content="Cesium">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/gy1016/blog-image@main/assets/avatar.jpg"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://sgyat.cn/2023/07/16/Screen-Space-Rrror/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: 'Copy successfully',
+    error: 'Copy error',
+    noSupport: 'The browser does not support'
+  },
+  relativeDate: {
+    homepage: true,
+    post: true
+  },
+  runtime: 'days',
+  dateSuffix: {
+    just: 'Just',
+    min: 'minutes ago',
+    hour: 'hours ago',
+    day: 'days ago',
+    month: 'months ago'
+  },
+  copyright: {"limitCount":50,"languages":{"author":"Author: Lamb","link":"Link: ","source":"Source: 墨悲丝染，诗赞羔羊","info":"Copyright is owned by the author. For commercial reprints, please contact the author for authorization. For non-commercial reprints, please indicate the source."}},
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: true,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '屏幕空间误差',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2023-07-20 17:12:20'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+    win.getCSS = (url,id = false) => new Promise((resolve, reject) => {
+      const link = document.createElement('link')
+      link.rel = 'stylesheet'
+      link.href = url
+      if (id) link.id = id
+      link.onerror = reject
+      link.onload = link.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        link.onload = link.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(link)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="generator" content="Hexo 6.3.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://cdn.jsdelivr.net/gh/gy1016/blog-image@main/assets/avatar.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">1</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">1</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">1</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 项目</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/terranova/"><span> Terranova</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友情链接</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="not-top-img fixed" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="墨悲丝染，诗赞羔羊"><span class="site-name">墨悲丝染，诗赞羔羊</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 项目</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/terranova/"><span> Terranova</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友情链接</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav></header><main class="layout" id="content-inner"><div id="post"><div id="post-info"><h1 class="post-title">屏幕空间误差</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2023-07-16T16:10:55.113Z" title="Created 2023-07-16 16:10:55">2023-07-16</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2023-07-20T17:12:20.296Z" title="Updated 2023-07-20 17:12:20">2023-07-20</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6/">计算机图形学</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="屏幕空间误差"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post View:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div><article class="post-content" id="article-container"><h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><p>怎样判断一个 <code>LOD</code> 绘制结果是否会使场景看起来更好？一个简单的思路就是利用相机到被观察瓦片的距离来判断，这个距离超过指定的阈值时，就渲染下一级的瓦片。我当初写渲染引擎的时候就是这么干的，于是就有了下面这段憨批代码：</p>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Camera.ts</span></span><br><span class="line"><span class="keyword">get</span> <span class="title function_">level</span>() &#123;</span><br><span class="line">  <span class="comment">// ...</span></span><br><span class="line">  <span class="keyword">const</span> i = <span class="title class_">MathUtil</span>.<span class="title function_">rayIntersectEllipsoid</span>(</span><br><span class="line">    cameraPos,</span><br><span class="line">    cameraPosSquared,</span><br><span class="line">    normalDir,</span><br><span class="line">    <span class="title class_">Ellipsoid</span>.<span class="property">Wgs84</span>.<span class="property">oneOverRadiiSquared</span></span><br><span class="line">  );</span><br><span class="line">​</span><br><span class="line">  <span class="keyword">const</span> h = i.<span class="property">near</span>;</span><br><span class="line">​</span><br><span class="line">  <span class="comment">// <span class="doctag">TODO:</span> 这个该用视锥体进行数学计算</span></span><br><span class="line">  <span class="comment">// ! It&#x27;s ugly but useful!</span></span><br><span class="line">  <span class="keyword">if</span> (h &lt;= <span class="number">100</span>) &#123;</span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">_level</span> = <span class="number">19</span>;</span><br><span class="line">  &#125; <span class="keyword">else</span> <span class="keyword">if</span> (h &lt;= <span class="number">300</span>) &#123;</span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">_level</span> = <span class="number">18</span>;</span><br><span class="line">  &#125; <span class="keyword">else</span> <span class="keyword">if</span> (h &lt;= <span class="number">660</span>) &#123;</span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">_level</span> = <span class="number">17</span>;</span><br><span class="line">  &#125; <span class="keyword">else</span> <span class="keyword">if</span> (h &lt;= <span class="number">1300</span>) &#123;</span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">_level</span> = <span class="number">16</span>;</span><br><span class="line">  &#125; <span class="keyword">else</span> <span class="keyword">if</span> (h &lt;= <span class="number">2600</span>) &#123;</span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">_level</span> = <span class="number">15</span>;</span><br><span class="line">  &#125; <span class="keyword">else</span> <span class="keyword">if</span> (h &lt;= <span class="number">6400</span>) &#123;</span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">_level</span> = <span class="number">14</span>;</span><br><span class="line">  &#125; <span class="keyword">else</span> <span class="keyword">if</span> (h &lt;= <span class="number">13200</span>) &#123;</span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">_level</span> = <span class="number">13</span>;</span><br><span class="line">  &#125; <span class="keyword">else</span> <span class="keyword">if</span> (h &lt;= <span class="number">26000</span>) &#123;</span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">_level</span> = <span class="number">12</span>;</span><br><span class="line">  &#125; <span class="keyword">else</span> <span class="keyword">if</span> (h &lt;= <span class="number">67985</span>) &#123;</span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">_level</span> = <span class="number">11</span>;</span><br><span class="line">  &#125; <span class="keyword">else</span> <span class="keyword">if</span> (h &lt;= <span class="number">139780</span>) &#123;</span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">_level</span> = <span class="number">10</span>;</span><br><span class="line">  &#125; <span class="keyword">else</span> <span class="keyword">if</span> (h &lt;= <span class="number">250600</span>) &#123;</span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">_level</span> = <span class="number">9</span>;</span><br><span class="line">  &#125; <span class="keyword">else</span> <span class="keyword">if</span> (h &lt;= <span class="number">380000</span>) &#123;</span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">_level</span> = <span class="number">8</span>;</span><br><span class="line">  &#125; <span class="keyword">else</span> <span class="keyword">if</span> (h &lt;= <span class="number">640000</span>) &#123;</span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">_level</span> = <span class="number">7</span>;</span><br><span class="line">  &#125; <span class="keyword">else</span> <span class="keyword">if</span> (h &lt;= <span class="number">1280000</span>) &#123;</span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">_level</span> = <span class="number">6</span>;</span><br><span class="line">  &#125; <span class="keyword">else</span> <span class="keyword">if</span> (h &lt;= <span class="number">2600000</span>) &#123;</span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">_level</span> = <span class="number">5</span>;</span><br><span class="line">  &#125; <span class="keyword">else</span> <span class="keyword">if</span> (h &lt;= <span class="number">6100000</span>) &#123;</span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">_level</span> = <span class="number">4</span>;</span><br><span class="line">  &#125; <span class="keyword">else</span> <span class="keyword">if</span> (h &lt;= <span class="number">11900000</span>) &#123;</span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">_level</span> = <span class="number">3</span>;</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">_level</span> = <span class="number">2</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> <span class="variable language_">this</span>.<span class="property">_level</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>这段代码虽然丑陋，但是有用(虽然效果不好)。实际上有更好的判断方式，那就是利用屏幕空间误差(ScreenSpaceError, SSE)，下面介绍 <code>SSE</code> 的概念，计算方式和使用效果。</p>
+<h2 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h2><p>首先在介绍<code>SSE</code>之前，还需要引入一个叫做几何度量误差(Geometric Error, GE)的概念，其可以定义为：计算机图形图像学领域中用来描述计算机绘制的近似几何模型与理想数学模型之间近似程度的一种度量误差。</p>
+<p>而<code>SSE</code>时几何度量误差在三维渲染管线处理后最终呈现在屏幕上的一种表现形式，下面有一个图（出处参考链接 1）能很好地表明两者之间的关系，我们希望通过多边形绘制一个圆，实际上在不断近似成圆的过程就可以看做是<code>HLOD</code>的切换过程：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/gy1016/blog-image@main/assets/gevssse.png" alt="GE vs SSE"></p>
+<h2 id="计算"><a href="#计算" class="headerlink" title="计算"></a>计算</h2><h2 id="效果"><a href="#效果" class="headerlink" title="效果"></a>效果</h2><p>关于<code>SSE</code>我们要考虑两种情况，距离变大和距离变小。前者可以考虑用低细节模型替换高细节模型，后者要考虑用高细节模型替换低细节模型。</p>
+<h2 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h2><ul>
+<li><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/u013589768/article/details/118479937">https://blog.csdn.net/u013589768/article/details/118479937</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/onsummer/p/13357226.html">https://www.cnblogs.com/onsummer/p/13357226.html</a></p>
+</li>
+</ul>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">Author: </span><span class="post-copyright-info"><a href="https://sgyat.cn">Lamb</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">Link: </span><span class="post-copyright-info"><a href="https://sgyat.cn/2023/07/16/Screen-Space-Rrror/">https://sgyat.cn/2023/07/16/Screen-Space-Rrror/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">Copyright Notice: </span><span class="post-copyright-info">All articles in this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless stating additionally.</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/Cesium/">Cesium</a></div><div class="post_share"><div class="social-share" data-image="https://cdn.jsdelivr.net/gh/gy1016/blog-image@main/assets/avatar.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"></nav></div><div class="aside-content" id="aside-content"><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>Catalog</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%97%AE%E9%A2%98"><span class="toc-text">问题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A6%82%E5%BF%B5"><span class="toc-text">概念</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AE%A1%E7%AE%97"><span class="toc-text">计算</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%95%88%E6%9E%9C"><span class="toc-text">效果</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%82%E8%80%83%E9%93%BE%E6%8E%A5"><span class="toc-text">参考链接</span></a></li></ol></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2021 - 2023 By Lamb</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Read Mode"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="Toggle Between Light And Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle between single-column and double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="Setting"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="Table Of Contents"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="Back To Top"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
