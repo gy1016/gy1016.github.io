@@ -1,0 +1,192 @@
+menu:
+  主页: / || fas fa-home
+  项目 || fas fa-list:
+    Terranova: /terranova/
+  标签: /tags/ || fas fa-tags
+  分类: /categories/ || fas fa-folder-open
+  友情链接: /link/ || fas fa-link
+  关于: /about/ || fas fa-heart
+
+nav:
+  logo: # image
+  display_title: true
+  fixed: true # fixed navigation bar
+
+highlight_theme: mac light #  darker / pale night / light / ocean / mac / mac light / false
+highlight_copy: true
+highlight_shrink: false #代码框不展开，需点击 '>' 打开
+
+social:
+  fab fa-github: https://github.com/gy1016 || Github || "#hdhfbb"
+
+avatar:
+  img: https://cdn.jsdelivr.net/gh/gy1016/blog-image@main/assets/avatar.jpg
+  effect: false # 头像会一直转圈
+
+disable_top_img: true
+
+cover:
+  # 是否显示文章封面
+  index_enable: false
+  aside_enable: false
+  archives_enable: false
+  # 封面显示的位置
+  # 三个值可配置 left , right , both
+  position: both
+  # 当没有设置cover时，默认的封面显示
+  default_cover:
+
+post_meta:
+  page:
+    date_type: both # created or updated or both 主页文章日期是创建日或者更新日或都显示
+    date_format: relative # date/relative 显示日期还是相对日期
+    categories: true # true or false 主页是否显示分类
+    tags: true # true or false 主页是否显示标签
+    label: true # true or false 显示描述性文字
+  post:
+    date_type: both # created or updated or both 文章页日期是创建日或者更新日或都显示
+    date_format: relative # date/relative 显示日期还是相对日期
+    categories: true # true or false 文章页是否显示分类
+    tags: true # true or false 文章页是否显示标签
+    label: true # true or false 显示描述性文字
+
+index_post_content:
+  method: 1 # 1：description：只显示description；2：both：优先选择description，如果没有配置description，则显示自动节选的内容; 3:auto_excerpt：只显示自动节选; 4:false:不显示文章内容
+  length: 500 # if you set method to 2 or 3, the length need to config
+
+anchor:
+  button:
+    enable: false
+    always_show: false
+    icon: # the unicode value of Font Awesome icon, such as '\3423'
+  auto_update: false # when you scroll in post, the URL will update according to header id.
+
+copy:
+  enable: true
+  copyright:
+    enable: true
+    limit_count: 50
+
+post_copyright:
+  enable: true
+  decode: false
+  author_href:
+  license: CC BY-NC-SA 4.0
+  license_url: https://creativecommons.org/licenses/by-nc-sa/4.0/
+
+toc:
+  post: true
+  page: true
+  number: false
+  expand: false
+  style_simple: true # for post
+  scroll_percent: true
+
+related_post:
+  enable: false
+  limit: 6 # 显示推荐文章数目
+  date_type: created # or created or updated 文章日期显示创建日或者更新日
+
+footer:
+  owner:
+    enable: true
+    since: 2021
+    copyright: false
+# custom_text: Hi, welcome to my <a href="https://butterfly.js.org/">blog</a>!
+
+aside:
+  enable: true
+  hide: false
+  button: true
+  mobile: true # display on mobile
+  position: right # left or right
+  display:
+    archive: true
+    tag: true
+    category: true
+  card_author:
+    enable: true
+    description:
+    button:
+      enable: true
+      icon: fab fa-github
+      text: 关注 Follow
+      link: https://github.com/gy1016
+  card_announcement:
+    enable: true
+    content: 哦豁，被你发现菜鸟写的文章了！
+  card_recent_post:
+    enable: true
+    limit: 5 # if set 0 will show all
+    sort: date # date or updated
+    sort_order: # Don't modify the setting unless you know how it works
+  card_categories:
+    enable: true
+    limit: 8 # if set 0 will show all
+    expand: none # none/true/false
+    sort_order: # Don't modify the setting unless you know how it works
+  card_tags:
+    enable: true
+    limit: 40 # if set 0 will show all
+    color: false
+    orderby: random # Order of tags, random/name/length
+    order: 1 # Sort of order. 1, asc for ascending; -1, desc for descending
+    sort_order: # Don't modify the setting unless you know how it works
+  card_archives:
+    enable: true
+    type: monthly # yearly or monthly
+    format: MMMM YYYY # eg: YYYY年MM月
+    order: -1 # Sort of order. 1, asc for ascending; -1, desc for descending
+    limit: 8 # if set 0 will show all
+    sort_order: # Don't modify the setting unless you know how it works
+  card_webinfo:
+    enable: true
+    post_count: true
+    last_push_date: true
+    sort_order: # Don't modify the setting unless you know how it works
+
+busuanzi:
+  site_uv: true
+  site_pv: true
+  page_pv: true
+
+runtimeshow:
+  enable: true
+  publish_date: 1/1/2021 00:00:00
+  ##网页开通时间
+  #格式: 月/日/年 时间
+  #也可以写成 年/月/日 时间
+
+# Aside widget - Newest Comments
+newest_comments:
+  enable: false
+  sort_order: # Don't modify the setting unless you know how it works
+  limit: 6
+  storage: 10 # unit: mins, save data to localStorage
+  avatar: true
+
+translate:
+  enable: false
+  # 默认按钮显示文字(网站是简体，应设置为'default: 繁')
+  default: 简
+  #网站默认语言，1: 繁体中文, 2: 简体中文
+  defaultEncoding: 1
+  #延迟时间,若不在前, 要设定延迟翻译时间, 如100表示100ms,默认为0
+  translateDelay: 0
+  #当文字是简体时，按钮显示的文字
+  msgToTraditionalChinese: '繁'
+  #当文字是繁体时，按钮显示的文字
+  msgToSimplifiedChinese: '简'
+
+readmode: true
+
+darkmode:
+  enable: true
+  # dark mode和 light mode切换按钮
+  button: true
+  autoChangeMode: false
+  # Set the light mode time. The value is between 0 and 24. If not set, the default value is 6 and 18
+  start: # 8
+  end: # 22
+
+rightside_scroll_percent: true

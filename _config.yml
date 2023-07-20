@@ -3,12 +3,12 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: Nova's Blog
-subtitle: ''
-description: ''
-keywords:
-author: nova.terra
-language: en
+title: 墨悲丝染，诗赞羔羊
+subtitle: 尺璧非宝，寸阴是竞
+description: 雕琢精美的技术文章！
+keywords: GIS, Qt, Cesium, OpenGL, WebGL
+author: Lamb
+language: zh-cn
 timezone: ''
 
 # URL
