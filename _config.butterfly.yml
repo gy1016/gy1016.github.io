@@ -91,7 +91,7 @@ footer:
   owner:
     enable: true
     since: 2021
-    copyright: false
+  copyright: false
 # custom_text: Hi, welcome to my <a href="https://butterfly.js.org/">blog</a>!
 
 aside:
@@ -189,4 +189,8 @@ darkmode:
   start: # 8
   end: # 22
 
-rightside_scroll_percent: true
+# A simple 404 page
+error_404:
+  enable: true
+  subtitle: '页面没有找到'
+  background:

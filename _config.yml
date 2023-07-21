@@ -4,7 +4,7 @@
 
 # Site
 title: 墨悲丝染，诗赞羔羊
-subtitle: 尺璧非宝，寸阴是竞
+subtitle: # 尺璧非宝，寸阴是竞
 description: 雕琢精美的技术文章！
 keywords: GIS, Qt, Cesium, OpenGL, WebGL
 author: Lamb
@@ -103,9 +103,3 @@ theme: butterfly
 ## Docs: https://hexo.io/docs/one-command-deployment
 deploy:
   type: ''
-
-# A simple 404 page
-error_404:
-  enable: true
-  subtitle: '页面没有找到'
-  background:
