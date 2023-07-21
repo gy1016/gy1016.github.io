@@ -16,8 +16,8 @@ highlight_theme: mac light #  darker / pale night / light / ocean / mac / mac li
 highlight_copy: true
 highlight_shrink: false #代码框不展开，需点击 '>' 打开
 
-social:
-  fab fa-github: https://github.com/gy1016 || Github || "#hdhfbb"
+# social:
+#   fab fa-github: https://github.com/gy1016 || Github || "#hdhfbb"
 
 avatar:
   img: https://cdn.jsdelivr.net/gh/gy1016/blog-image@main/assets/avatar.jpg
@@ -193,4 +193,4 @@ darkmode:
 error_404:
   enable: true
   subtitle: '页面没有找到'
-  background:
+  background: /img/404.jpg
