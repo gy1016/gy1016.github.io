@@ -77,13 +77,13 @@ post_copyright:
 toc:
   post: true
   page: true
-  number: false
+  number: true
   expand: false
-  style_simple: true # for post
-  scroll_percent: true
+  style_simple: false # for post
+  scroll_percent: false
 
 related_post:
-  enable: false
+  enable: true
   limit: 6 # 显示推荐文章数目
   date_type: created # or created or updated 文章日期显示创建日或者更新日
 
@@ -148,7 +148,7 @@ aside:
 busuanzi:
   site_uv: true
   site_pv: true
-  page_pv: true
+  page_pv: false
 
 runtimeshow:
   enable: true
