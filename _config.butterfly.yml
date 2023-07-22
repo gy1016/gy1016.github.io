@@ -194,3 +194,10 @@ error_404:
   enable: true
   subtitle: '页面没有找到'
   background: /img/404.jpg
+
+katex:
+  enable: true
+  # true 表示每一页都加载katex.js
+  # false 需要时加载，须在使用的Markdown Front-matter 加上 katex: true
+  per_page: false
+  hide_scrollbar: true
