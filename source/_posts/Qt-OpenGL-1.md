@@ -1,7 +1,7 @@
 ---
-title: Qt配合OpenGL的食用
+title: Qt配合OpenGL的食用(一：搭建环境)
 description: 🐏的软光栅构建第一步：构建Qt和OpenGL的绘制环境。
-tags: + OpenGL
+tags: + OpenGL+Qt专栏
 categories: + 计算机图形学
 ---
 
