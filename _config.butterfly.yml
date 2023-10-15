@@ -114,7 +114,7 @@ aside:
       link: https://github.com/gy1016
   card_announcement:
     enable: true
-    content: 哦豁，被你发现菜鸟写的文章了！
+    content: 如果去旅行的话，你想去哪里？
   card_recent_post:
     enable: true
     limit: 5 # if set 0 will show all
