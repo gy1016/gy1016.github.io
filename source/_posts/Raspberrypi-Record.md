@@ -104,3 +104,7 @@ source ~/.bashrc
 # 关闭当前窗口
 <ctrl> + w + c
 ```
+
+## 参考链接
+
+* (Neovim从零配置自定义个人编辑器)[https://www.bilibili.com/video/BV1Td4y1578E/?spm_id_from=333.999.0.0&vd_source=897a01590d1243df954fe9d722c15de5]
